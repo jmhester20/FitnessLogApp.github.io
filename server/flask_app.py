@@ -54,6 +54,5 @@ def serve_react(path):
     abort(404)
 
 if __name__ == "__main__":
-    # local dev only
-    from server import app as _app  # if you’ve structured differently, adjust
-    _app.run(host="0.0.0.0", port=int(os.getenv("PORT", 8000)), debug=True)
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 8000)), debug=True)
+
