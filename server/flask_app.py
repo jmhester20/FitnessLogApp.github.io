@@ -22,7 +22,7 @@ app = Flask(
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 
 # extensions
-CORS(app)
+CORS(app, origins=["https://fitnesslogapp-github-io-1.onrender.com"])
 jwt    = JWTManager(app)
 bcrypt = Bcrypt(app)
 
