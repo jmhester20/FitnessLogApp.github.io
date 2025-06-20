@@ -1,5 +1,7 @@
+# server/flask_app.py
+
 import os
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_bcrypt import Bcrypt
@@ -25,7 +27,7 @@ bcrypt = Bcrypt(app)
 # MongoDB setup
 mongo_uri = os.getenv("MONGO_URI")
 client = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
-db = client["fitnesslog"]  # 👈 this is your chosen DB name
+db = client["fitnesslog"]  # ✅ replace with your actual DB name
 
 # Register route blueprints
 from routes.auth_routes import auth_bp
@@ -34,7 +36,7 @@ from routes.workout_routes import workout_bp
 app.register_blueprint(auth_bp, url_prefix="/api/auth")
 app.register_blueprint(workout_bp, url_prefix="/api/workouts")
 
-# check route
+# Health check route
 @app.route("/ping")
 def ping():
-    return {"message": "test"}, 200
+    return jsonify({"message": "pong"}), 200
