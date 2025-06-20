@@ -3,7 +3,8 @@ import axios from 'axios';
 
 // Dynamically choose the base URL
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE || '/api'  // use full URL in production
+  baseURL: process.env.REACT_APP_API_BASE || 'https://fitnesslog-backend.onrender.com/api'
+
 });
 
 // Attach the Authorization header on every request
