@@ -1,58 +1,42 @@
 # server/flask_app.py
 
 import os
-from flask import Flask, send_from_directory, abort
+from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_bcrypt import Bcrypt
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
-# load environment variables from .env
+# Load environment variables
 load_dotenv()
 
-# serve React build from client/build
+# Initialize Flask app
 app = Flask(__name__)
 
-# JWT config
-app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
-
-# extensions
+# CORS: allow frontend
 CORS(app, origins=["https://fitnesslogapp-github-io-1.onrender.com"])
-jwt    = JWTManager(app)
+
+# JWT
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+jwt = JWTManager(app)
+
+# Bcrypt
 bcrypt = Bcrypt(app)
 
-# MongoDB setup
+# MongoDB
 mongo_uri = os.getenv("MONGO_URI")
-client    = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
-db        = client["yourDatabaseName"]  # <-- replace with your actual DB name
+client = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
+db = client["yourDatabaseName"]  # Replace with actual DB name
 
-# register your blueprints
+# Make db and bcrypt available globally (you already import from here)
+from flask_app import app as app_instance
+app_instance.db = db
+app_instance.bcrypt = bcrypt
+
+# Import and register routes
 from routes.auth_routes import auth_bp
 from routes.workout_routes import workout_bp
 
-app.register_blueprint(auth_bp,    url_prefix="/api/auth")
+app.register_blueprint(auth_bp, url_prefix="/api/auth")
 app.register_blueprint(workout_bp, url_prefix="/api/workouts")
-
-# catch-all: serve React’s index.html on any non-/api route
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def serve_react(path):
-    build_dir = app.static_folder
-    requested = os.path.join(build_dir, path)
-
-    # if the file exists (e.g. JS, CSS), serve it
-    if path and os.path.exists(requested):
-        return send_from_directory(build_dir, path)
-
-    # otherwise serve the React app’s index.html
-    index = os.path.join(build_dir, "index.html")
-    if os.path.exists(index):
-        return send_from_directory(build_dir, "index.html")
-
-    # no build output found—404
-    abort(404)
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 8000)), debug=True)
-
