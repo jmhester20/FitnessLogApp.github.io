@@ -1,0 +1,276 @@
+
+
+/* Back link */
+.back-link {
+  display: block;
+  color: #007BFF;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+/* Page title spacing */
+.date-page h2 {
+  margin: 0.5rem 0 1.5rem;
+  text-align: center;  
+}
+
+/* Add Workout button */
+.add-btn {
+  display: block;
+  margin: 0 auto 1rem;  
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: -4rem;
+}
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Form section (Log by buttons) */
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  margin-top: -4rem;
+}
+.mode-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.mode-btn:hover {
+  background-color: #218838;
+}
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  background-color: #c82333;
+}
+
+/* Workout list main table */
+.workout-list-table {
+  width: 90%;      
+  max-width: 700px;       
+  border-collapse: collapse;
+  margin: 0 auto 2rem;
+  text-align: left;
+  table-layout: auto;
+}
+
+.workout-list-table th,
+.workout-list-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+.workout-list-table th {
+  background-color: #007BFF;
+  color: white;
+  
+}
+
+/* Vertical separator: thick border after # column */
+.workout-list-table td:nth-child(1),
+.workout-list-table th:nth-child(1) {
+  border-right: 2px solid #007BFF;
+}
+
+/* Zebra striping */
+.workout-list-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.workout-list-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Workout info cell flex layout */
+.workout-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Prevent line wrap in text */
+.workout-text {
+  white-space: nowrap;
+}
+
+/* Delete button */
+.delete-btn {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Nested weights horizontal table */
+.log-weights-table.nested {
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+}
+.log-weights-table.nested td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+/* Center the no-workouts message */
+.no-workouts {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Total minutes display */
+.total-minutes {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+
+
+
+
+/* Entry form table centered and shrink-to-fit */
+.entry-table {
+  width: auto;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+.entry-table th,
+.entry-table td {
+  padding: 0.35rem;
+  border: 1px solid #ddd;
+}
+.entry-table input {
+  width: auto;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.entry-table button {
+  margin-left: 0.5rem;
+}
+
+/* Center the weights-entry form table */
+.weights-table {
+  width: auto;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+.weights-table th,
+.weights-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+.weights-table input {
+  width: auto;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.weights-table td[colspan="2"] {
+  text-align: center !important; 
+}
+.entry-table th,
+.entry-table td {
+  padding: 0.75rem;
+  text-align: center;
+}
+.entry-table input {
+  width: 100%;               
+  box-sizing: border-box;
+}
+.entry-table th {
+  font-weight: bold;
+}
+.entry-table button {
+  margin-left: 0.5rem;
+}
+
+.no-workouts {
+  text-align: center;
+  font-size: 1.25rem;     
+  font-weight: bold;
+  margin-top: 2rem;
+  color: #333;           
+}
+
+/* Total-minutes display */
+.total-minutes {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 2.7rem;
+  margin-top: 2rem;
+  color: #333;       
+}
+
+
+
+/* Summary metrics block */
+.summary-metrics {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  font-size: 1rem;
+  
+}
+.summary-metrics div {
+  flex: 1;
+  text-align: center;
+}
+.summary-metrics strong {
+  font-weight: bold;
+}
+.notes-container {
+  text-align: left;
+  margin-left: 0;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.notes-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.notes-area {
+  width: 100%;
+  height: 4rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #fff;
+  color: #111;
+}
+
+.workout-notes {
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+  color: #555;
+}
+

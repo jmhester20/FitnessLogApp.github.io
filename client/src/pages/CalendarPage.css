@@ -1,0 +1,115 @@
+/* Full-width header bar */
+.full-header {
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.full-header h2 {
+  color: #007BFF;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid #007BFF;
+  color: #007BFF;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background-color: #e6f0ff;
+}
+
+/* Centered card for the calendar */
+.calendar-card {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto 4rem; /* some bottom space */
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Make the calendar fill its container */
+.calendar-component {
+  width: 100% !important;
+  max-width: none !important;
+  font-size: 1.25rem;
+}
+
+/* Month label styling */
+.calendar-component .react-calendar__navigation__label {
+  font-size: 2rem !important;
+  font-weight: bold;
+  color: #007BFF !important;
+}
+
+/* Nav arrows */
+.calendar-component .react-calendar__navigation__prev-button,
+.calendar-component .react-calendar__navigation__next-button {
+  font-size: 1.3rem !important;
+  color: #007BFF !important;
+}
+
+/* Weekday headers */
+.calendar-component .react-calendar__month-view__weekdays {
+  border-bottom: 1px solid #ddd;
+}
+.calendar-component .react-calendar__month-view__weekdays__weekday {
+  padding: 0.75rem 0;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+/* Day grid */
+.calendar-component .react-calendar__month-view__days {
+  border-top: 1px solid #ddd;
+}
+.calendar-component .react-calendar__tile {
+  border: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 1rem 0;
+  background-color: #fff;
+}
+
+/* Remove right border on last-of-row */
+.calendar-component .react-calendar__tile:nth-child(7n),
+.calendar-component .react-calendar__month-view__weekdays__weekday:last-child {
+  border-right: none;
+}
+
+/* Active day */
+.calendar-component .react-calendar__tile--active {
+  background: #007BFF !important;
+  color: #fff !important;
+}
+
+/* Under the existing .calendar-card rule */
+.calendar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* New subtitle */
+.calendar-subtitle {
+  font-size: 2.0rem;
+  color: #007BFF;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Push calendar down if needed (already via margin-bottom on subtitle) */
+.calendar-component {
+  margin-top: 1rem;
+}
+
