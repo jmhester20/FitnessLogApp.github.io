@@ -12,11 +12,7 @@ from pymongo import MongoClient
 load_dotenv()
 
 # serve React build from client/build
-app = Flask(
-    __name__,
-    static_folder="../client/build",  # <-- React’s production files
-    static_url_path=""                # <-- so "/" serves index.html
-)
+app = Flask(__name__)
 
 # JWT config
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
