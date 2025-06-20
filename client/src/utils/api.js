@@ -1,11 +1,10 @@
 // client/src/utils/api.js
 import axios from 'axios';
 
-// Create an Axios instance with base URL
+// Dynamically choose the base URL
 const api = axios.create({
-  baseURL: '/api'
+  baseURL: process.env.REACT_APP_API_BASE || '/api'  // use full URL in production
 });
-
 
 // Attach the Authorization header on every request
 api.interceptors.request.use(
