@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Dynamically choose the base URL
 const api = axios.create({
-  baseURL: 'https://fitnesslogapp-github-io-1.onrender.com/api'
+  baseURL: 'https://fitnesslogapp-github-io.onrender.com/api'
 });
 
 // Attach the Authorization header on every reques

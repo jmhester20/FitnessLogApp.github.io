@@ -62,6 +62,7 @@ def login():
         access_token = create_access_token(identity=str(user["_id"]))
         print(">> Login successful")
         return jsonify({"token": access_token}), 200
+    
 
     except Exception as e:
         print(">> Error during login:", str(e))

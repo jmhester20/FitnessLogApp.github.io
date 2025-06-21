@@ -16,6 +16,8 @@ app = Flask(__name__)
 
 # Allow frontend access via CORS
 CORS(app, origins=["https://fitnesslogapp-github-io-1.onrender.com"])
+                
+                    
 
 # JWT setup
 app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
