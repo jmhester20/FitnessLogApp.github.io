@@ -29,7 +29,7 @@ bcrypt = Bcrypt(app)
 # MongoDB setup
 mongo_uri = os.getenv("MONGO_URI")
 client = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000, tls=True, tlsAllowInvalidCertificates=True)
-db = client["fitnesslog"]  #  replace with your actual DB name
+db = client["fitnesslog"]  
 
 # Register route blueprints
 from routes.auth_routes import auth_bp

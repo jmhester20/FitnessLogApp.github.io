@@ -26,6 +26,7 @@ def create_workout():
         "user_id": user_id,
         "date": data.get("date"),
         "exercise": data.get("exercise"),
+        "notes": data.get("notes", "")
     }
 
     if data.get("time") is not None:
@@ -54,9 +55,12 @@ def get_workout(w_id):
 def update_workout(w_id):
     user_id = get_jwt_identity()
     data = request.get_json()
+    
+    update_fields = {k: v for k, v in data.items() if k in ["date", "exercise", "time", "sets", "reps", "weights", "notes"]}
+
     result = db.workouts.update_one(
         {"_id": ObjectId(w_id), "user_id": user_id},
-        {"$set": data}
+        {"$set": update_fields}
     )
     if result.matched_count == 0:
         return jsonify({"msg": "Not found"}), 404
