@@ -113,3 +113,9 @@
   margin-top: 1rem;
 }
 
+.calendar-warning {
+  color: #ff0000;
+  font-size: 1rem;
+  margin: 1rem 2%;
+  text-align: center;
+}
