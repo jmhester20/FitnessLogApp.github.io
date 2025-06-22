@@ -33,7 +33,7 @@ export default function CalendarPage() {
                     Log Out
                 </button>
             </header>
-            <p className="calendar-warning">If a log didn’t save, try logging out and back in to refresh.</p>
+            <p className="calendar-warning">You need to log in to load your saved data</p>
 
             <div className="calendar-card">
                 <p className="calendar-subtitle">Choose date to log</p>
